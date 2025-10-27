@@ -1,0 +1,41 @@
+<div class="results" *ngIf="buses && buses.length">
+  <div class="summary">
+    Total Buses Found: {{ buses.length }} | Total Seats Available: {{ totalSeats() }}
+  </div>
+
+  <div *ngFor="let bus of buses" class="bus-card">
+    <div class="left">
+      <h4>{{ bus.company }}</h4>
+      <p class="sub">{{ bus.busName }} • {{ bus.busType }}</p>
+      <p class="cancel">Cancellation policy</p>
+    </div>
+    <div class="center">
+      <div>
+        <strong>Starting</strong>
+        <div>{{ bus.startTime }}</div>
+        <small>{{ bus.boardingPoint }}</small>
+      </div>
+      <div>
+        <strong>Arrival</strong>
+        <div>{{ bus.arrivalTime }}</div>
+        <small>{{ bus.droppingPoint }}</small>
+      </div>
+    </div>
+    <div class="right">
+  <div class="fare">৳{{ bus.fare }}</div>
+  <div class="seats">Seats Left: {{ bus.totalSeats - bus.bookedSeats }}</div>
+  <button class="view" (click)="viewSeats(bus.id)">VIEW SEATS</button>
+</div>
+
+<div *ngIf="selectedBusId === bus.id && selectedBusSeats" class="seat-layout">
+  <div *ngFor="let seat of selectedBusSeats"
+       class="seat"
+       [class.booked]="seat.isBooked"
+       (click)="bookSeat(bus.id, seat)">
+    {{ seat.seatNo }}
+  </div>
+</div>
+
+<div *ngIf="!buses || buses.length == 0" class="no-data">
+  No buses to show. Search to load results.
+</div>

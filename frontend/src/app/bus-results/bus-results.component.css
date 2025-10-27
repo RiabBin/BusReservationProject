@@ -1,0 +1,137 @@
+.results .summary { background:#f7f7f7; padding:10px 12px; border-radius:6px; margin-bottom:12px; }
+.bus-card { display:flex; gap:12px; border:1px solid #eee; padding:12px; border-radius:8px; margin-bottom:10px; align-items:center; }
+.left { width:30%; }
+.center { width:45%; display:flex; justify-content:space-between; }
+.right { width:25%; text-align:right; }
+.fare { background:#fff; color:#e50019; font-weight:bold; font-size:18px; padding:6px 10px; border-radius:6px; display:inline-block; }
+.view { background:#e50019; color:#fff; border:none; padding:6px 10px; border-radius:6px; margin-top:8px; }
+.cancel { color:#ff4d4f; font-size:12px; }
+.no-data { text-align:center; color:#777; padding:20px; }
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 40px);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+//* প্রতিটি বাস কার্ড */
+.bus-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap; /* নিচে কনটেন্ট নামার সুযোগ দিবে */
+  position: relative;
+}
+
+/* বাম অংশ */
+.bus-card .left {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* মাঝের অংশ */
+.bus-card .center {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+/* ডান অংশ */
+.bus-card .right {
+  flex: 1;
+  min-width: 150px;
+  text-align: right;
+}
+
+/* VIEW SEATS বাটন */
+.view {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.view:hover {
+  background-color: #0056b3;
+}
+
+/* ==== সিট লেআউট ==== */
+.seat-layout {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* কেন্দ্রে দেখাবে */
+  gap: 10px;
+  margin-top: 15px;
+  padding: 15px;
+  background: #f1f3f5;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 10px 10px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* সিট স্টাইল */
+.seat {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  background-color: #e9f7ef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.seat:hover {
+  background-color: #198754;
+  color: white;
+}
+
+.seat.booked {
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  color: #842029;
+  cursor: not-allowed;
+}
+
+/* সুন্দর fade effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .bus-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bus-card .right {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .seat-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+

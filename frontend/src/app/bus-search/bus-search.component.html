@@ -1,0 +1,11 @@
+<div class="search-card">
+  <div class="inputs">
+    <input [(ngModel)]="from" placeholder="Going From" />
+    <button type="button" (click)="swap()">⇄</button>
+    <input [(ngModel)]="to" placeholder="Going To" />
+    <input type="date" [(ngModel)]="date" />
+    <button type="button" class="search-btn" (click)="search()">Search Bus</button>
+  </div>
+
+  <app-bus-results [buses]="buses"></app-bus-results>
+</div>

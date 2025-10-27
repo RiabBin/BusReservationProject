@@ -1,0 +1,4 @@
+.search-card { background: #fff; padding: 18px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+.inputs { display:flex; gap:8px; align-items:center; justify-content:center; flex-wrap:wrap; }
+input { padding:8px 10px; border-radius:6px; border:1px solid #ddd; }
+.search-btn { background:#e50019; color:white; padding:8px 14px; border:none; border-radius:6px; }
